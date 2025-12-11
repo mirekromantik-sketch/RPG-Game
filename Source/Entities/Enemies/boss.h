@@ -26,6 +26,7 @@ public:
     std::string getName() const { return name; }
     int getHP() const { return hp; }
     int getMaxHP() const { return maxHP; }
+    int getLevel() const { return level; }
     int getXPReward() const { return xpReward; }
     int getGoldReward() const { return goldReward; }
 };

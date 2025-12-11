@@ -3,4 +3,4 @@ Build/Output/*
 *.exe
 .vs/
 *.sln
-
+saves/*

@@ -1,0 +1,20 @@
+{
+  "version": "2.0",
+  "player": {
+    "name": "Marcel",
+    "className": "Warrior",
+    "originName": "Orc",
+    "level": 30,
+    "experience": 775,
+    "experienceToNextLevel": 3000,
+    "hp": 1145,
+    "maxHP": 1145,
+    "strength": 378,
+    "magic": 149,
+    "defense": 150,
+    "speed": 124,
+    "gold": 11336,
+    "attributePoints": 6,
+    "talentPoints": 98
+  }
+}

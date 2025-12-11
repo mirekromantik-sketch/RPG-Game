@@ -15,16 +15,36 @@ Boss::Boss(string name, int level, int hp, int strength, int defense):
 }
 
 Boss Boss::generateRandomBoss(int playerLevel) {
-    int enemyLevel = playerLevel + 5;
+    int enemyLevel;
+
+    // Difficulty scaling based on player level
+    if (playerLevel >= 30) {
+        enemyLevel = playerLevel + 20;
+    }
+    else if (playerLevel >= 20) {
+        enemyLevel = playerLevel + 15;
+    }
+    else if (playerLevel >= 10) {
+        enemyLevel = playerLevel + 10;
+    }
+    else {
+        enemyLevel = playerLevel + 5;
+    }
+
     if (enemyLevel < 1) enemyLevel = 1;
-    
-    string names[] = {"Malaker the Corruptor", "The Black Emperor", "Ironjaw Behemoth", "Frostvein", "Nightshade Overlord", "Malice, the World-Eater", "Void Serpent"};
+
+    // Random boss names
+    string names[] = {
+        "Malaker the Corruptor", "The Black Emperor", "Ironjaw Behemoth",
+        "Frostvein", "Nightshade Overlord", "Malice, the World-Eater", "Void Serpent"
+    };
     string name = names[rand() % 7];
-    
-    int hp = 100 + (enemyLevel * 10);
-    int strength = 6 + (enemyLevel * 2);
-    int defense = 5 + (enemyLevel * 2);
-    
+
+    // Stats scaled with enemyLevel
+    int hp     = 100 + (enemyLevel * (playerLevel >= 30 ? 25 : playerLevel >= 20 ? 20 : playerLevel >= 10 ? 15 : 10));
+    int strength = 6 + (enemyLevel * (playerLevel >= 30 ? 5 : playerLevel >= 20 ? 4 : playerLevel >= 10 ? 3 : 2));
+    int defense  = 5 + (enemyLevel * (playerLevel >= 30 ? 5 : playerLevel >= 20 ? 4 : playerLevel >= 10 ? 3 : 2));
+
     return Boss(name, enemyLevel, hp, strength, defense);
 }
 

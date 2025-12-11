@@ -18,9 +18,12 @@ public:
     void removeItem(int index);
     void display() const;
     void useItem(Player& player);
+    void equipMenu(Player& player);
+    Item* getItem(int index);
     
     int getSize() const { return items.size(); }
     bool isFull() const { return items.size() >= maxSize; }
+    const std::vector<Item>& getItems() const { return items; }
 };
 
 #endif
