@@ -5,6 +5,7 @@
 #include "../Systems/Shop/WeaponShop.h"
 #include "../Systems/Shop/ArmorShop.h"
 #include "../Systems/Shop/PotionShop.h"
+#include "../Systems/Shop/BackpackShop.h"
 #include "../Systems/NPC/NPC.h"
 #include <iostream>
 #include <cstdlib>
@@ -439,7 +440,8 @@ void Game::visitShops() {
         cout << "1. Weapon Shop" << endl;
         cout << "2. Armor Shop" << endl;
         cout << "3. Potion Shop" << endl;
-        cout << "4. Leave Town" << endl;
+        cout << "4. Backpack Shop" << endl;
+        cout << "5. Leave Town" << endl;
         cout << "Choice: ";
         
         int choice;
@@ -456,6 +458,9 @@ void Game::visitShops() {
                 openPotionShop(*player);
                 break;
             case 4:
+                openBackpackShop(*player);
+                break;
+            case 5:
                 shopping = false;
                 cout << "You leave the town." << endl;
                 break;
@@ -492,6 +497,7 @@ void Game::combat() {
                 int xp = enemy.getXPReward();
                 int gold = enemy.getGoldReward();
                 player->gainExperience(xp);
+                player->setXpMultiplier(1); // Reset XP multiplier after battle
                 player->addGold(gold);
                 cout << "You gained " << xp << " experience and " << gold << " gold!" << endl;
                 
@@ -563,6 +569,7 @@ void Game::bossEncounter() {
                 int xp = boss.getXPReward();
                 int gold = boss.getGoldReward();
                 player->gainExperience(xp);
+                player->setXpMultiplier(1); // Reset XP multiplier after battle
                 player->addGold(gold);
                 cout << "You gained " << xp << " experience and " << gold << " gold!" << endl;
                 
@@ -779,6 +786,7 @@ void Game::storyBossEncounter() {
                 ConsoleUI::printSuccess("\nVictory! You have defeated " + boss.getName() + "!");
                 cout << "Chapter " << chapter << " Complete!" << endl;
                 player->gainExperience(boss.getXPReward());
+                player->setXpMultiplier(1); // Reset XP multiplier after battle
                 player->addGold(boss.getGoldReward());
                 cout << "Gained " << boss.getGoldReward() << " gold!" << endl;
                 cout << "\nPress Enter to continue...";

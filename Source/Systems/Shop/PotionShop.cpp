@@ -20,7 +20,8 @@ void openPotionShop(Player& player) {
         {"Superior Health Potion", "Restores 200 HP", 150, ItemType::CONSUMABLE, 200},
         {"Elixir of Strength", "Temporarily increases strength", 100, ItemType::CONSUMABLE, 10},
         {"Elixir of Magic", "Temporarily increases magic", 100, ItemType::CONSUMABLE, 10},
-        {"Elixir of Defense", "Temporarily increases defense", 100, ItemType::CONSUMABLE, 10}
+        {"Elixir of Defense", "Temporarily increases defense", 100, ItemType::CONSUMABLE, 10},
+        {"XP Elixir x100", "Multiplies XP gain by 100 for next battle", 5000, ItemType::CONSUMABLE, 100}
     };
     
     bool shopping = true;

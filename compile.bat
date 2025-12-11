@@ -20,6 +20,7 @@ REM ======================================
     Source/Systems/Shop/WeaponShop.cpp ^
     Source/Systems/Shop/ArmorShop.cpp ^
     Source/Systems/Shop/PotionShop.cpp ^
+    Source/Systems/Shop/BackpackShop.cpp ^
     Source/Systems/NPC/NPC.cpp ^
     Source/Systems/Town/Town.cpp ^
     Source/Systems/Boss/BossManager.cpp ^

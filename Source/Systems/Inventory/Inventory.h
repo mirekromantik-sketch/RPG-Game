@@ -22,6 +22,8 @@ public:
     Item* getItem(int index);
     
     int getSize() const { return items.size(); }
+    int getMaxSize() const { return maxSize; }
+    void increaseMaxSize(int amount) { maxSize += amount; }
     bool isFull() const { return items.size() >= maxSize; }
     const std::vector<Item>& getItems() const { return items; }
 };

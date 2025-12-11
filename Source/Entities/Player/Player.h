@@ -44,6 +44,9 @@ private:
     Item* equippedWeapon;
     Item* equippedArmor;
     
+    // Buffs
+    int xpMultiplier;
+    
     // New systems
     PlayerClass playerClass;
     Origin origin;
@@ -102,6 +105,8 @@ public:
     int getGold() const { return gold; }
     Inventory& getInventory() { return inventory; }
     const Inventory& getInventory() const { return inventory; }
+    int getXpMultiplier() const { return xpMultiplier; }
+    void setXpMultiplier(int multiplier) { xpMultiplier = multiplier; }
     Item* getEquippedWeapon() const { return equippedWeapon; }
     Item* getEquippedArmor() const { return equippedArmor; }
     

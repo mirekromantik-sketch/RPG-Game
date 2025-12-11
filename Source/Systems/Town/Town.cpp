@@ -4,13 +4,14 @@
 #include "../Shop/WeaponShop.h"
 #include "../Shop/ArmorShop.h"
 #include "../Shop/PotionShop.h"
+#include "../Shop/BackpackShop.h"
 #include <iostream>
 
 using namespace std;
 
 Town::Town(string name, string description, TownType type)
     : name(name), description(description), type(type), 
-      hasWeaponShop(true), hasArmorShop(true), hasPotionShop(true), 
+      hasWeaponShop(true), hasArmorShop(true), hasPotionShop(true), hasBackpackShop(true),
       hasInn(true), innCost(50) {}
 
 Town::~Town() {
@@ -52,6 +53,9 @@ void Town::showTownMenu(Player& player) {
         if (hasPotionShop) {
             cout << option++ << ". Visit Potion Shop" << endl;
         }
+        if (hasBackpackShop) {
+            cout << option++ << ". Visit Backpack Shop" << endl;
+        }
         if (hasInn) {
             cout << option++ << ". Rest at Inn (" << innCost << " gold)" << endl;
         }
@@ -76,6 +80,8 @@ void Town::showTownMenu(Player& player) {
                 openArmorShop(player);
             } else if (hasPotionShop && choice == currentOption++) {
                 openPotionShop(player);
+            } else if (hasBackpackShop && choice == currentOption++) {
+                openBackpackShop(player);
             } else if (hasInn && choice == currentOption++) {
                 restAtInn(player);
             } else if (!npcs.empty() && choice == currentOption++) {

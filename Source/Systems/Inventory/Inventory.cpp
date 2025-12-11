@@ -53,11 +53,15 @@ void Inventory::useItem(Player& player) {
     Item& item = items[choice - 1];
     
     if (item.getType() == ItemType::CONSUMABLE) {
-        if (item.getName() == "Health Potion") {
+        if (item.getName() == "Health Potion" || item.getName().find("Health Potion") != string::npos) {
             int healAmount = item.getValue();
             player.heal(healAmount);
             cout << "Used " << item.getName() << "! Restored " << healAmount << " HP!" << endl;
             cout << "Current HP: " << player.getHP() << "/" << player.getMaxHP() << endl;
+        } else if (item.getName().find("XP Elixir") != string::npos) {
+            int multiplier = item.getValue();
+            player.setXpMultiplier(multiplier);
+            cout << "Used " << item.getName() << "! XP gain multiplied by " << multiplier << " for your next battle!" << endl;
         }
         removeItem(choice - 1);
     } else {

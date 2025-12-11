@@ -25,6 +25,7 @@ private:
     bool hasWeaponShop;
     bool hasArmorShop;
     bool hasPotionShop;
+    bool hasBackpackShop;
     bool hasInn;
     int innCost;
 

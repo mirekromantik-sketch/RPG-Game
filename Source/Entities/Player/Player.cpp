@@ -119,6 +119,9 @@ Player::Player(string name, int classChoice, int originChoice)
     equippedWeapon = nullptr;
     equippedArmor = nullptr;
     
+    // Initialize buffs
+    xpMultiplier = 1;
+    
     // Initialize talent tree for the class
     talentTree = TalentTree(className);
     
@@ -238,8 +241,14 @@ void Player::heal(int amount) {
 }
 
 void Player::gainExperience(int xp) {
-    experience += xp;
-    cout << "Gained " << xp << " experience!" << endl;
+    int actualXp = xp * xpMultiplier;
+    experience += actualXp;
+    
+    if (xpMultiplier > 1) {
+        cout << "Gained " << xp << " x" << xpMultiplier << " = " << actualXp << " experience!" << endl;
+    } else {
+        cout << "Gained " << actualXp << " experience!" << endl;
+    }
     
     while (experience >= experienceToNextLevel) {
         levelUp();
