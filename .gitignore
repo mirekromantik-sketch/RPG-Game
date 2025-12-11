@@ -1,0 +1,6 @@
+Build/Output/*
+*.o
+*.exe
+.vs/
+*.sln
+
