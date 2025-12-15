@@ -22,17 +22,15 @@ void Inventory::removeItem(int index) {
     }
 }
 
-void Inventory::display() const {
+void Inventory::display() const{
     cout << "\n=== Inventory (" << items.size() << "/" << maxSize << ") ===" << endl;
-    
-    if (items.empty()) {
-        cout << "Your inventory is empty." << endl;
-        return;
+
+    if(items.empty()) {
+        cout << "Inventory is empty" << endl;
     }
-    
+
     for (int i = 0; i < items.size(); i++) {
-        cout << i + 1 << ". " << items[i].getName() 
-             << " - " << items[i].getDescription() << endl;
+        cout << i + 1 << ". " << items[i].getName() << " - " << items[i].getDescription() << endl;
     }
 }
 
